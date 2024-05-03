@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "PUT",
+    "urlPattern": "/todos/(\\d+)"
+  },
+  "response": {
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "status": 201,
+    "body":"{{{request.body}}}",
+    "transformers": ["response-template"]
+  }
+}

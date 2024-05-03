@@ -1,4 +1,17 @@
 package be.pieterjd.vdbru2024.todo;
 
-public record Todo(Integer userId, Integer id, String title, Boolean completed) {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class Todo {
+    private Integer userId;
+    private Integer id;
+    private String title;
+    private Boolean completed;
 }
