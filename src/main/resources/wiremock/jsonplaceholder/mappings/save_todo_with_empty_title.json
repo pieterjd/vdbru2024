@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/todos",
+    "bodyPatterns" : [ {
+      "matchesJsonPath" : "$.title",
+      "absent": true
+    } ]
+  },
+  "response": {
+    "status": 500
+  }
+}
