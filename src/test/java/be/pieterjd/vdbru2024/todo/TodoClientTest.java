@@ -104,6 +104,7 @@ class TodoClientTest {
 
     @Test
     void shouldUpdateTodo_whenSavingExistingTodo() throws URISyntaxException, IOException, InterruptedException {
+        // getting todo with id 1 is mocked as well in wiremock/jsonplaceholder/mappings/get_todo_with_id_1.json
         Todo todoById = client.getTodoById(1);
         assertNotNull(todoById);
         assertNotNull(todoById.getId());
