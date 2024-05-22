@@ -1,0 +1,26 @@
+GET https://jsonplaceholder.typicode.com/todos
+Accept: application/json
+
+###
+GET https://jsonplaceholder.typicode.com/todos/33
+Accept: application/json
+
+###
+PUT https://jsonplaceholder.typicode.com/todos/33
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "title": "sint sit aut vero updated title",
+  "completed": false
+}
+
+###
+# endpoint of this application
+GET http://localhost:8080/todos/all
+Accept: application/json
+
+
+
+
+

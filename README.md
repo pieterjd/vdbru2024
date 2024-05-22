@@ -6,3 +6,4 @@ This repository complements my [Speed up writing tests with Wiremock Spring Boot
 * Unittests for the client
 * Wiremock mappings in json files
 * The equivalent mapping in code in the unittests
+* Sample http calls to jsonplaceholder API and to the ``/todos/all`` endpoint of this application
