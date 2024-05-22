@@ -16,6 +16,7 @@ import java.util.List;
 
 @Component
 public class TodoClient {
+    // we'll be needing this application property in the unittests
     @Value("${todoapi.url}")
     private String endpoint;
     private final ObjectMapper mapper;

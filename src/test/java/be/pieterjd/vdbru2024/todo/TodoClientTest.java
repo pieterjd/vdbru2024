@@ -31,6 +31,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class TodoClientTest {
     @Autowired
     private TodoClient client;
+
+    // injecting the wiremock server named "jsonplaceholder"
+    // by default it loads all the mapping files located in
+    // resources/wiremock/jsonplaceholder/mappings
     @InjectWireMock("jsonplaceholder")
     private WireMockServer wiremock;
 
@@ -47,7 +51,7 @@ class TodoClientTest {
 
     @Test
     void shouldThrowException_whenApiIsNotWorking(){
-        // this stubbing Overrides the mapping defined in resources/wiremock/jsonplaceholder/mappings
+        // this stubbing Overrides the GET /todos mapping defined in resources/wiremock/jsonplaceholder/mappings
         wiremock.stubFor(
                 WireMock.get("/todos")
                         .willReturn(
@@ -62,6 +66,11 @@ class TodoClientTest {
     void shouldHaveId_whenSavingValidNewTodo() throws IOException, URISyntaxException, InterruptedException {
         Todo toSave = new Todo(10, null,"New Todo", false);
         Todo expectedAfterPost = new Todo(10, 201,"New Todo", false);
+
+        // no mapping file for POST /todos
+        // if not defined in code, you'll get a 404 response
+        // and a TodoClientException will be thrown
+
         wiremock.stubFor(
                 WireMock.post("/todos")
                         .withRequestBody(WireMock.equalToJson(mapper.writeValueAsString(toSave)))
